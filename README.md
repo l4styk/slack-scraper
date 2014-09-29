@@ -22,6 +22,7 @@ The scraper will need a variety of configuration values to do its work. Put your
 * `ORCHESTRATE_API_KEY`
 * `SLACK_API_TOKEN`
 * `MAILCHIMP_API_TOKEN`
+* `CHANNELS`
 * `NOTIFY_EMAILS`
 
 ## Tests
