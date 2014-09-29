@@ -11,9 +11,18 @@ Get the code, and set it up to run on [Heroku](https://www.heroku.com/). To do t
     vi .env # add your config values
     heroku create
     git push heroku master
-    # scale worker dynos
+    # TODO scale worker dynos
 
 Or, to run it locally, just do `foreman run npm start`.
+
+## Workers
+
+The scraper uses two workers to accomplish its hopes and dreams:
+
+1. Mines messages from Slack on a [daily,weekly,monthly] basis.
+2. On a [daily,weekly,monthly] basis, emails an archive to specified recipients.
+
+The executables for our workers live in `/bin`, but their guts live in `/lib`. Their tests live under `/test`.
 
 ## Config
 
@@ -21,9 +30,17 @@ The scraper will need a variety of configuration values to do its work. Put your
 
 * `ORCHESTRATE_API_KEY`
 * `SLACK_API_TOKEN`
-* `MAILCHIMP_API_TOKEN`
-* `CHANNELS`
-* `NOTIFY_EMAILS`
+* `MAILGUN_API_TOKEN`
+* `CHANNELS`: comma-separated list of Slack channels to watch.
+* `NOTIFY_EMAILS`: comma-separated list of emails to send monthly reports to.
+
+For reference, your `.env` file should look something like this:
+
+    ORCHESTRATE_API_KEY=...
+    SLACK_API_TOKEN=...
+    MAILGUN_API_TOKEN=...
+    CHANNELS=...
+    NOTIFY_EMAILS=...
 
 ## Tests
 
