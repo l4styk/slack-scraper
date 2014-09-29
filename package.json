@@ -1,19 +1,36 @@
 {
   "name": "slack-scraper",
   "version": "0.0.0",
-  "description": "",
+  "description": "Scrapes and listens to Slack channels for messages, and sends monthly emails with archived messages.",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run jshint && npm run jscoverage && npm run mocha",
+    "jshint": "./node_modules/.bin/jshint bin lib test",
+    "jscoverage": "./node_modules/.bin/jscoverage lib lib-cov",
+    "mocha": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/arielspear/slack-scraper"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ariel Spear",
+  "contribitors": [
+    "Diana Thayer <garbados@gmail.com>"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/arielspear/slack-scraper/issues"
   },
-  "homepage": "https://github.com/arielspear/slack-scraper"
+  "homepage": "https://github.com/arielspear/slack-scraper",
+  "dependencies": {
+    "kew": "^0.4.0",
+    "orchestrate": "^0.3.7",
+    "request": "^2.44.0"
+  },
+  "devDependencies": {
+    "jscoverage": "^0.5.6",
+    "jshint": "^2.5.6",
+    "mocha": "^1.21.4"
+  }
 }
